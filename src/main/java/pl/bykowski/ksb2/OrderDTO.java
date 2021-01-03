@@ -1,12 +1,18 @@
 package pl.bykowski.ksb2;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.time.LocalDate;
 
 public class OrderDTO {
 
+    @JsonView({OrderView.PackMachine.class, OrderView.Mail.class})
     private String street;
+    @JsonView({OrderView.PackMachine.class, OrderView.Mail.class})
     private String city;
+    @JsonView({OrderView.Mail.class})
     private String name;
+    @JsonView({OrderView.Normal.class})
     private LocalDate localDate;
 
     public String getStreet() {

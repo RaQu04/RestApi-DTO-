@@ -1,6 +1,7 @@
 package pl.bykowski.ksb2;
 
 
+import com.fasterxml.jackson.annotation.JsonView;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +32,7 @@ public class OrderApi {
     }
 
     @GetMapping
+    @JsonView({OrderView.PackMachine.class})
     public List<OrderDTO> getOrders() {
         return orderDtoList;
     }
